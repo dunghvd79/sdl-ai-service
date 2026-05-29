@@ -1,0 +1,25 @@
+# Environments
+.env
+.env.*
+venv/
+ENV/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Application data
+chroma_data/
+chroma-storage/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Plugin / Sixth
+.sixth/
