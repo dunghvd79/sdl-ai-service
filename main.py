@@ -82,7 +82,7 @@ async def search_document(request: SearchRequest):
             return {"answer": "Xin lỗi, tôi không tìm thấy thông tin này trong sách."}
 
         # BƯỚC 2: TỔNG HỢP (Gom đoạn văn)
-        context_text = "\n---\n".join(contexts)
+        context_text = "\n---\n".join([f"[Trang {c['page_number']}]\n{c['snippet']}" for c in contexts])
 
         # BƯỚC 3: TẠO PROMPT (Ra lệnh cho Gemini)
         prompt = f"""
