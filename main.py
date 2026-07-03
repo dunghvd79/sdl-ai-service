@@ -1,3 +1,11 @@
+# Bắt buộc ghi đè mô-đun sqlite3 chuẩn bằng pysqlite3 để tương thích với ChromaDB trên Linux/Render/Railway
+import sys
+try:
+    __import__('pysqlite3')
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
 import os
 from fastapi import FastAPI, UploadFile, File, Form
 from pydantic import BaseModel
