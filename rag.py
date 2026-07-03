@@ -6,6 +6,18 @@ import os
 
 # Khởi tạo Database Vector (ChromaDB)
 chroma_data_path = os.getenv("CHROMA_DATA_PATH", "./chroma_data")
+
+# Cơ chế dự phòng (fail-safe) nếu thư mục cấu hình bị lỗi Permission Denied trên Production Cloud
+try:
+    os.makedirs(chroma_data_path, exist_ok=True)
+    test_file = os.path.join(chroma_data_path, ".write_test")
+    with open(test_file, "w") as f:
+        f.write("write_test")
+    os.remove(test_file)
+except Exception as e:
+    print(f"[AI] Canh bao: Khong co quyen ghi vao {chroma_data_path} ({e}). Fallback ve thu muc local ./chroma_data")
+    chroma_data_path = "./chroma_data"
+
 chroma_client = chromadb.PersistentClient(path=chroma_data_path)
 
 # Tạo một Collection (Giống như tạo Bảng trong SQL)
