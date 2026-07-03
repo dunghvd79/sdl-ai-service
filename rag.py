@@ -94,3 +94,7 @@ def search_relevant_chunks(question: str, book_id: str, n_results: int = 3):
         })
 
     return formatted_results
+
+def delete_book_index(book_id: str):
+    """Xóa toàn bộ dữ liệu vector của cuốn sách khỏi ChromaDB"""
+    collection.delete(where={"book_id": book_id})

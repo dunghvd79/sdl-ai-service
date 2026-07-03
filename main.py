@@ -13,7 +13,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 
 # Import các hàm từ file rag.py của bạn (vẫn giữ nguyên file rag.py nhé)
-from rag import process_and_index_pdf, search_relevant_chunks
+from rag import process_and_index_pdf, search_relevant_chunks, delete_book_index
 
 # 1. Tải biến môi trường từ file .env
 load_dotenv()
@@ -111,5 +111,13 @@ async def search_document(request: SearchRequest):
             "answer": response.text, # Câu trả lời mượt mà như con người
             "references": contexts   # Trả về luôn đoạn text gốc để user tin tưởng
         }
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.delete("/api/documents/{book_id}")
+async def delete_document(book_id: str):
+    try:
+        delete_book_index(book_id)
+        return {"message": f"Đã xóa hoàn toàn dữ liệu vector của sách ID: {book_id}"}
     except Exception as e:
         return {"error": str(e)}
