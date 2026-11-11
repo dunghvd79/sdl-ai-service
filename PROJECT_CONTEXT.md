@@ -1,10 +1,10 @@
 # 🤖 Smart Digital Library (SDL) — AI Service Context
 
 > **Dự án:** Smart Digital Library (SDL) - Phân hệ AI & RAG Service  
-> **Cập nhật lần cuối:** 06/2026  
-> **AI Service Production URL:** [https://sdl-ai-service.onrender.com](https://sdl-ai-service.onrender.com)  
+> **Cập nhật lần cuối:** 11/2026  
+> **AI Service Production URL:** ⚠️ **Đang ngừng hoạt động (kiểm tra 11/11/2026):** cả `sdl-ai-service.onrender.com` (Render: `no-server`) và `sdl-ai-service-production.up.railway.app` (Railway: `Application not found`) đều đã bị xoá. Tính năng chat/RAG không dùng được cho đến khi deploy lại AI Service và cập nhật `AI_SERVICE_URL` trên Render.  
 > **Backend API URL:** [https://sdl-backend.onrender.com](https://sdl-backend.onrender.com)  
-> **Frontend URL:** [https://pigeon-bookstore.netlify.app](https://pigeon-bookstore.netlify.app)
+> **Frontend URL:** [https://pigeon-bookstore.pages.dev](https://pigeon-bookstore.pages.dev)
 
 ---
 
